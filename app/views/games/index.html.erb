@@ -1,2 +1,26 @@
-<h1>Games#index</h1>
-<p>Find me in app/views/games/index.html.erb</p>
+<% content_for :header do %>
+  <h2><%= t_view :heading %></h2>
+<% end %>
+
+<% content_for :content do %>
+  <%= render layout: 'shared/paginated', locals: {collection: @games, param_name: local_assigns.fetch(:page_param_name, :query_page), params: local_assigns.fetch(:params, nil)} do %>
+    <table class="table">
+      <thead>
+        <th><%= Game.human_attribute_name :name %></th>
+        <th><%= Game.human_attribute_name :user_id %></th>
+        <th><%= Game.human_attribute_name :board_size %></th>
+        <th><%= Game.human_attribute_name :created_at %></th>
+      </thead>
+      <tbody>
+        <% @games.each do |game| %>
+          <tr>
+            <td><%= game.name %></td>
+            <td><%= game.user.email %></td>
+            <td><%= game.human_attribute_value :board_size %></td>
+            <td><%= game.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>

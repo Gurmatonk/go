@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @games = Game.page(params[:query_page]).per(15)
   end
 
   def show
@@ -12,7 +13,7 @@ class GamesController < ApplicationController
 
   def create
     @game.user = current_user
-    if @game.save 
+    if @game.save
       redirect_to @game
     else
       render 'new'
