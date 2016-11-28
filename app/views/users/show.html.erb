@@ -1,2 +1,16 @@
-<h3>User</h3>
-<p>Email: <%= @user.email if @user.email %></p>
+<% scope = [:users, :show] %>
+
+<% content_for :header do %>
+  <h1><%= "#{t_view(:heading, scope)} #{@user.name}" %></h1>
+<% end %>
+
+<% content_for :content do %>
+  <dl class="dl-horizontal">
+    <dt><%= User.human_attribute_name :name %></dt>
+    <dd><%= @user.name %></dd>
+    <% if current_user == @user %>
+      <dt><%= User.human_attribute_name :email %></dt>
+      <dd><%= @user.email %></dd>
+    <% end %>
+  </dl>
+<% end %>

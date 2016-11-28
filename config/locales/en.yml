@@ -35,6 +35,9 @@ en:
           large: 19x19
   attributes:
   controllers:
+    users:
+      update:
+        success: "%{name} was updated"
   date:
     abbr_day_names:
     - Sun
@@ -245,7 +248,11 @@ en:
   views:
     common:
       about: About
+      register: Register
+      save: Save
       sign_in: Sign in
+      update: Update
+      your_account: Your account
     devise:
       confirmations:
         new:
@@ -321,3 +328,6 @@ en:
         box_right_title: Ideas
         heading: Welcome to Aid Hive
         description: Aid Hive helps to coordinate refugee relief.
+  unauthorized:
+    read:
+      user: Not allowed to view other user accounts.
