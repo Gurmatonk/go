@@ -6,6 +6,8 @@
   <%= bootstrap_form_for @game do |f| %>
     <%= f.text_field :name %>
     <%= f.select :board_size, enum_options_for_select(Game, :board_size, sort: false) %>
+    <%= f.select :handicap, (0..9) %>
+    <%= f.select :komi, options_for_select(0.5.step(10,1).to_a) %>
     <%= f.form_group do %>
       <%= f.primary %>
     <% end %>

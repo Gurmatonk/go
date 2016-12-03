@@ -32,7 +32,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:board_size, :name)
+    params.require(:game).permit(:board_size, :handicap, :komi, :name)
   end
 
 end

@@ -9,6 +9,8 @@
         <th><%= Game.human_attribute_name :name %></th>
         <th><%= Game.human_attribute_name :user_id %></th>
         <th><%= Game.human_attribute_name :board_size %></th>
+        <th><%= Game.human_attribute_name :komi %></th>
+        <th><%= Game.human_attribute_name :handicap %></th>
         <th><%= Game.human_attribute_name :created_at %></th>
       </thead>
       <tbody>
@@ -17,6 +19,8 @@
             <td><%= game.name %></td>
             <td><%= game.user.email %></td>
             <td><%= game.human_attribute_value :board_size %></td>
+            <td><%= game.komi %></td>
+            <td><%= game.handicap %></td>
             <td><%= game.created_at %></td>
           </tr>
         <% end %>

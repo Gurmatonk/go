@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113130640) do
+ActiveRecord::Schema.define(version: 20161128174702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20161113130640) do
     t.integer  "board_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "handicap"
+    t.decimal  "komi"
     t.index ["black_id"], name: "index_games_on_black_id", using: :btree
     t.index ["board_size"], name: "index_games_on_board_size", using: :btree
     t.index ["name"], name: "index_games_on_name", using: :btree
